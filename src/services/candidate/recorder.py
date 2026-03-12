@@ -27,13 +27,9 @@ class CandidateRecorder:
             if getattr(row, "provider", None) is not None:
                 provider_name = getattr(row.provider, "name", None)
 
-            key_name = None
+            key_name = getattr(row, "api_key_name", None)
             auth_type = None
             priority = None
-            if getattr(row, "key", None) is not None:
-                key_name = getattr(row.key, "name", None)
-                auth_type = getattr(row.key, "auth_type", None)
-                priority = getattr(row.key, "priority", None)
 
             result.append(
                 CandidateKey(
